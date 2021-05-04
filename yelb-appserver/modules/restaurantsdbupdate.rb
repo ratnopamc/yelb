@@ -30,7 +30,7 @@ def restaurantsdbupdate(restaurant)
                       :dbname => 'yelbdatabase',
                       :user => 'postgres',
                       :password => 'postgres_password'
-        con.prepare('statement1', 'UPDATE restaurants SET count = count +1 WHERE name = $1')
+        con.prepare('statement1', 'UPDATE restaurants SET count = count +2 WHERE name = $1')
         res = con.exec_prepared('statement1', [ restaurant ])
         con.close
     end 

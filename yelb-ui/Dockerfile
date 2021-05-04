@@ -1,11 +1,11 @@
-FROM node:10.13
+FROM public.ecr.aws/bitnami/node:10
 MAINTAINER massimo@it20.info
 
 WORKDIR /
 
 RUN npm install -g @angular/cli
 
-ADD clarity-seed-newfiles clarity-seed-newfiles 
+ADD clarity-seed-newfiles clarity-seed-newfiles
 
 RUN git clone https://github.com/vmware/clarity-seed.git
 WORKDIR /clarity-seed
@@ -24,20 +24,21 @@ RUN rm -r /clarity-seed/src/app/about
 
 WORKDIR /clarity-seed/src
 
-RUN npm install  
+RUN npm i --unsafe-perm node-sass
+RUN npm i --unsafe-perm
 
-RUN ng build --environment=prod --output-path=./prod/dist/ -aot -vc -cc -dop --buildOptimizer
+RUN ng build --environment=prod --output-path=./prod/dist/
 RUN ng build --environment=test --output-path=./test/dist/
 RUN ng build --environment=dev --output-path=./dev/dist/
 
 
-FROM nginx:1.17.10
+FROM public.ecr.aws/z9d2n7e1/nginx:1.19.5
 MAINTAINER massimo@it20.info
 
 WORKDIR /
 ADD startup.sh startup.sh
 
-ENV UI_ENV=prod 
+ENV UI_ENV=prod
 
 RUN chmod +x startup.sh
 
@@ -46,4 +47,3 @@ COPY --from=0 /clarity-seed/src/test/dist /clarity-seed/test/dist
 COPY --from=0 /clarity-seed/src/dev/dist /clarity-seed/dev/dist
 
 CMD ["./startup.sh"]
-

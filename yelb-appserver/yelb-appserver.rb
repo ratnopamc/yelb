@@ -29,7 +29,7 @@ disable :protection
 # there is no expectations to be able to use DDB for test/dev 
  
 configure :production do
-  set :redishost, "redis-server"
+  set :redishost, "yelb-redisserver"
   set :port, 4567
   set :yelbdbhost => "yelb-db"
   set :yelbdbport => 5432
@@ -38,7 +38,7 @@ configure :production do
   set :awsregion => ENV['AWS_REGION']
 end
 configure :test do
-  set :redishost, "redis-server"
+  set :redishost, "yelb-redisserver"
   set :port, 4567
   set :yelbdbhost => "yelb-db"
   set :yelbdbport => 5432
