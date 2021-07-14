@@ -1,4 +1,4 @@
-FROM public.ecr.aws/bitnami/node:10
+FROM public.ecr.aws/bitnami/node:14
 MAINTAINER massimo@it20.info
 
 WORKDIR /
