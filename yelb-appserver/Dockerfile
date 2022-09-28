@@ -1,4 +1,4 @@
-FROM public.ecr.aws/bitnami/ruby:2.4.10
+FROM public.ecr.aws/bitnami/ruby:2.5
 MAINTAINER massimo@it20.info
 
 ################## BEGIN INSTALLATION ######################
