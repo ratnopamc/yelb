@@ -4,8 +4,8 @@
   "Protocol": "http",
   "Port": 4567,
   "Namespace": "yelb.local",
-  "PercentageStep": 10,
-  "WaitTime": 60,
+  "PercentageStep": 25,
+  "WaitTime": 30,
   "FailureThresholdValue": 1,
   "FailureThresholdTime": 600
 }
