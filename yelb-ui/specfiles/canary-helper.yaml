@@ -137,7 +137,7 @@ Resources:
                 awslogs-region: !Ref AWS::Region
                 awslogs-stream-prefix: !Sub '${MicroserviceName}-xray'
         - Name: envoy
-          Image: !Sub '840364872350.dkr.ecr.${AWS::Region}.amazonaws.com/aws-appmesh-envoy:v1.15.1.0-prod'
+          Image: 'public.ecr.aws/appmesh/aws-appmesh-envoy:v1.23.1.0-prod'
           Essential: true
           PortMappings:
             - ContainerPort: !Ref Port
